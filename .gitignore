@@ -1,0 +1,4 @@
+# ignore builds
+
+LittleBill-test-backend/LittleBill-test-backend/bin
+LittleBill-test-backend/LittleBill-test-backend/obj
