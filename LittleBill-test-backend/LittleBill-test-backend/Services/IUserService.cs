@@ -21,6 +21,7 @@ namespace LittleBill_test_backend.Services
         User GetByMail(string mail);
         User Register(User user);
         bool CheckToken(string token);
+        void ChangePassword(string mail, string password);
     }
 
     public class UserService : ContextHelper, IUserService
@@ -43,7 +44,7 @@ namespace LittleBill_test_backend.Services
             if (user == null) return null;
 
             // authentication successful so generate jwt token
-            var token = generateJwtToken(user);
+            var token = TokenHelper.generateJwtToken(user, _appSettings.Secret);
 
             return new AuthenticateResponse(user, token);
         }
@@ -62,7 +63,7 @@ namespace LittleBill_test_backend.Services
         {
             if (!UserExist(user))
             {
-                user.Id = _users.LastOrDefault().Id+1;
+                user.Id = _users.LastOrDefault().Id + 1;
                 ContextHelper.context.Users.Add(user);
                 ContextHelper.context.SaveChanges();
                 _users = ContextHelper.context.Users.ToList();
@@ -73,7 +74,7 @@ namespace LittleBill_test_backend.Services
 
         public User GetByMail(string mail)
         {
-            foreach(var user in _users)
+            foreach (var user in _users)
             {
                 if (user.Email.Equals(mail))
                     return user;
@@ -83,30 +84,17 @@ namespace LittleBill_test_backend.Services
 
         public bool CheckToken(string token)
         {
-            try
-            {
-                var tokenHandler = new JwtSecurityTokenHandler();
-                var key = Encoding.ASCII.GetBytes(_appSettings.ResetMailSecret);
-                tokenHandler.ValidateToken(token, new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
-                    ClockSkew = TimeSpan.Zero
-                }, out SecurityToken validatedToken);
+            return TokenHelper.checkToken(this, token, _appSettings.ResetMailSecret);
+        }
 
-                var jwtToken = (JwtSecurityToken)validatedToken;
-                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
-                var user = GetById(userId);
-                return (user != null);
-            }
-            catch
+        public void ChangePassword(string mail, string password)
+        {
+            var user = _users.First(u => u.Email.Equals(mail));
+            if (user != null)
             {
-                // do nothing if jwt validation fails
-                // user is not attached to context so request won't have access to secure routes
-                return false;
+                user.Password = password;
+                ContextHelper.context.Update(user);
+                ContextHelper.context.SaveChanges();
             }
         }
 
@@ -120,20 +108,7 @@ namespace LittleBill_test_backend.Services
             return false;
         }
 
-        private string generateJwtToken(User user)
-        {
-            // generate token that is valid for 7 days
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
-        }
+
     }
 
 }

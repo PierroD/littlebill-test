@@ -70,7 +70,7 @@ namespace LittleBill_test_backend.Controllers
                 _mailSenderService.Send(user);
         }
 
-        [HttpPost("pwTokenVerify/{token}")]
+        [HttpGet("pwTokenVerify/{token}")]
         public IActionResult VerifyTokenToAllowReset(string token)
         {
             bool result = _userService.CheckToken(token);
@@ -80,6 +80,16 @@ namespace LittleBill_test_backend.Controllers
             return BadRequest(new { message = "Problème lors de la vérification du token" });
         }
 
+
+        [HttpPost("changePassword")]
+        public IActionResult ChangePassword(ChangePasswordRequest changePassword)
+        {
+            if (_userService.CheckToken(changePassword.token))
+            {
+                _userService.ChangePassword(changePassword.mail, changePassword.password);
+            }
+            return Ok(new { message = "Votre mot de passe a bien été modifié" });
+        }
     }
 }
 
