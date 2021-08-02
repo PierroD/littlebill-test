@@ -18,7 +18,9 @@ namespace LittleBill_test_backend.Services
         AuthenticateResponse Authenticate(AuthenticateRequest model);
         IEnumerable<User> GetAll();
         User GetById(int id);
+        User GetByMail(string mail);
         User Register(User user);
+        bool CheckToken(string token);
     }
 
     public class UserService : ContextHelper, IUserService
@@ -67,6 +69,45 @@ namespace LittleBill_test_backend.Services
                 return user;
             }
             return null;
+        }
+
+        public User GetByMail(string mail)
+        {
+            foreach(var user in _users)
+            {
+                if (user.Email.Equals(mail))
+                    return user;
+            }
+            return null;
+        }
+
+        public bool CheckToken(string token)
+        {
+            try
+            {
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes(_appSettings.ResetMailSecret);
+                tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    // set clockskew to zero so tokens expire exactly at token expiration time (instead of 5 minutes later)
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken);
+
+                var jwtToken = (JwtSecurityToken)validatedToken;
+                var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
+                var user = GetById(userId);
+                return (user != null);
+            }
+            catch
+            {
+                // do nothing if jwt validation fails
+                // user is not attached to context so request won't have access to secure routes
+                return false;
+            }
         }
 
         private bool UserExist(User user)

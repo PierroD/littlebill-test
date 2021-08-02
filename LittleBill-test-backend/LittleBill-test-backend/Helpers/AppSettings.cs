@@ -8,6 +8,8 @@ namespace LittleBill_test_backend.Helpers
     public class AppSettings
     {
         public string Secret { get; set; }
-        public string dev { get; set; }
+        public string ResetMailSecret { get; set; }
+        public string Mail { get; set; }
+        public string Password{ get; set; }
     }
 }
