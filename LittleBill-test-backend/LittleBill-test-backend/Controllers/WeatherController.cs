@@ -20,6 +20,7 @@ namespace LittleBill_test_backend.Controllers
             _weatherService = weatherService;
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult GetByName(SearchWeatherRequest request)
         {

@@ -1,4 +1,5 @@
-﻿using LittleBill_test_backend.Models;
+﻿using LittleBill_test_backend.Enums;
+using LittleBill_test_backend.Models;
 using LittleBill_test_backend.Requests;
 using LittleBill_test_backend.Responses;
 using LittleBill_test_backend.Services;
@@ -30,7 +31,7 @@ namespace LittleBill_test_backend.Controllers
             var response = _userService.Authenticate(model);
 
             if (response == null)
-                return BadRequest(new { message = "Nom ou mot de passe incorrect" });
+                return BadRequest(new { message = ErrorMessage.ERROR_400_BAD_NAME_Or_PASSWORD });
 
             return Ok(response);
         }
@@ -57,7 +58,7 @@ namespace LittleBill_test_backend.Controllers
         {
             var response = _userService.Register(user);
             if (response == null)
-                return BadRequest(new { message = "L'utilisateur n'a pas pu être créé" });
+                return BadRequest(new { message = ErrorMessage.ERROR_500_CREATE_USER_ERROR });
 
             return Authenticate(new AuthenticateRequest { Name = response.Name, Password = response.Password });
         }
@@ -77,7 +78,7 @@ namespace LittleBill_test_backend.Controllers
             if(result)
                 return Ok(new ValideTokenResponse { validate=result, token=token });
 
-            return BadRequest(new { message = "Problème lors de la vérification du token" });
+            return BadRequest(new { message = ErrorMessage.ERROR_400_BAD_TOKEN });
         }
 
 
@@ -88,7 +89,7 @@ namespace LittleBill_test_backend.Controllers
             {
                 _userService.ChangePassword(changePassword.mail, changePassword.password);
             }
-            return Ok(new { message = "Votre mot de passe a bien été modifié" });
+            return Ok(new { message = SuccessMessage.SUCCESS_200_MODIFY_PASSWORD });
         }
     }
 }
