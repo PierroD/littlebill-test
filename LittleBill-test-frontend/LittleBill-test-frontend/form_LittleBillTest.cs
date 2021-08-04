@@ -28,8 +28,6 @@ namespace LittleBill_test_frontend
 
         private void form_LittleBill_Test_Load(object sender, EventArgs e)
         {
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            this.BackColor = ProjectColors.BackgroundColor;
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)

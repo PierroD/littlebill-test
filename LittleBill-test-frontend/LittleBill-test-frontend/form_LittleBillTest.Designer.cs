@@ -32,9 +32,6 @@ namespace LittleBill_test_frontend
             this.components = new System.ComponentModel.Container();
             this.elipse_form = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.form_drag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.lbl_date = new System.Windows.Forms.Label();
-            this.lbl_ville = new System.Windows.Forms.Label();
-            this.pic_location = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnl_bg = new Guna.UI2.WinForms.Guna2Panel();
             this.sb_historique = new Guna.UI2.WinForms.Guna2VScrollBar();
             this.flp_historique = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,11 +57,14 @@ namespace LittleBill_test_frontend
             this.lbl_humidite = new System.Windows.Forms.Label();
             this.lbl_search = new System.Windows.Forms.Label();
             this.btn_historique = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_location)).BeginInit();
+            this.lbl_date = new System.Windows.Forms.Label();
+            this.lbl_ville = new System.Windows.Forms.Label();
+            this.pic_location = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnl_bg.SuspendLayout();
             this.pnl_top.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_location)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -77,41 +77,6 @@ namespace LittleBill_test_frontend
             this.form_drag.TargetControl = this.pnl_bg;
             this.form_drag.TransparentWhileDrag = true;
             this.form_drag.UseTransparentDrag = true;
-            // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lbl_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(193)))), ((int)(((byte)(195)))));
-            this.lbl_date.Location = new System.Drawing.Point(22, 12);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(42, 21);
-            this.lbl_date.TabIndex = 0;
-            this.lbl_date.Text = "Date";
-            // 
-            // lbl_ville
-            // 
-            this.lbl_ville.AutoSize = true;
-            this.lbl_ville.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ville.ForeColor = System.Drawing.Color.White;
-            this.lbl_ville.Location = new System.Drawing.Point(39, 44);
-            this.lbl_ville.Name = "lbl_ville";
-            this.lbl_ville.Size = new System.Drawing.Size(49, 25);
-            this.lbl_ville.TabIndex = 1;
-            this.lbl_ville.Text = "Ville";
-            this.lbl_ville.Click += new System.EventHandler(this.lbl_ville_Click);
-            // 
-            // pic_location
-            // 
-            this.pic_location.Image = global::LittleBill_test_frontend.Properties.Resources.Location;
-            this.pic_location.ImageRotate = 0F;
-            this.pic_location.Location = new System.Drawing.Point(9, 44);
-            this.pic_location.Name = "pic_location";
-            this.pic_location.ShadowDecoration.Parent = this.pic_location;
-            this.pic_location.Size = new System.Drawing.Size(24, 24);
-            this.pic_location.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_location.TabIndex = 2;
-            this.pic_location.TabStop = false;
             // 
             // pnl_bg
             // 
@@ -154,7 +119,7 @@ namespace LittleBill_test_frontend
             // 
             // flp_historique
             // 
-            this.flp_historique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.flp_historique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.flp_historique.Location = new System.Drawing.Point(703, 63);
             this.flp_historique.Name = "flp_historique";
             this.flp_historique.Size = new System.Drawing.Size(536, 584);
@@ -469,11 +434,46 @@ namespace LittleBill_test_frontend
             this.btn_historique.Text = "Historique";
             this.btn_historique.Click += new System.EventHandler(this.btn_history_Click);
             // 
+            // lbl_date
+            // 
+            this.lbl_date.AutoSize = true;
+            this.lbl_date.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lbl_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(193)))), ((int)(((byte)(195)))));
+            this.lbl_date.Location = new System.Drawing.Point(22, 12);
+            this.lbl_date.Name = "lbl_date";
+            this.lbl_date.Size = new System.Drawing.Size(42, 21);
+            this.lbl_date.TabIndex = 0;
+            this.lbl_date.Text = "Date";
+            // 
+            // lbl_ville
+            // 
+            this.lbl_ville.AutoSize = true;
+            this.lbl_ville.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ville.ForeColor = System.Drawing.Color.White;
+            this.lbl_ville.Location = new System.Drawing.Point(39, 44);
+            this.lbl_ville.Name = "lbl_ville";
+            this.lbl_ville.Size = new System.Drawing.Size(49, 25);
+            this.lbl_ville.TabIndex = 1;
+            this.lbl_ville.Text = "Ville";
+            this.lbl_ville.Click += new System.EventHandler(this.lbl_ville_Click);
+            // 
+            // pic_location
+            // 
+            this.pic_location.Image = global::LittleBill_test_frontend.Properties.Resources.Location;
+            this.pic_location.ImageRotate = 0F;
+            this.pic_location.Location = new System.Drawing.Point(9, 44);
+            this.pic_location.Name = "pic_location";
+            this.pic_location.ShadowDecoration.Parent = this.pic_location;
+            this.pic_location.Size = new System.Drawing.Size(24, 24);
+            this.pic_location.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_location.TabIndex = 2;
+            this.pic_location.TabStop = false;
+            // 
             // form_LittleBill_Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(89)))), ((int)(((byte)(90)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pic_location);
             this.Controls.Add(this.lbl_ville);
@@ -485,13 +485,13 @@ namespace LittleBill_test_frontend
             this.Text = "Little Bill Test";
             this.Load += new System.EventHandler(this.form_LittleBill_Test_Load);
             this.Shown += new System.EventHandler(this.form_LittleBill_Test_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_location)).EndInit();
             this.pnl_bg.ResumeLayout(false);
             this.pnl_bg.PerformLayout();
             this.pnl_top.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_location)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
