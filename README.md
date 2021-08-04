@@ -84,4 +84,4 @@ Dans le .zip vous trouverez :
 
 Afin d'éviter l'effet 'Démo' (rien ne marche quand quelqu'un d'autre que nous teste la solution)
 
-Voici un lien youtube : [cliquez ici](hhttps://youtu.be/fTmPEnyz0SA)
+Voici un lien youtube : [cliquez ici](https://youtu.be/fTmPEnyz0SA)
