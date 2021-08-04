@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LittleBill_test_frontend.Colors;
 using LittleBill_test_frontend.Helpers;
+using LittleBill_test_frontend.Models.WeatherModel;
+using LittleBill_test_frontend.Properties;
 using LittleBill_test_frontend.UserControls;
 using LittleBill_test_frontend_library;
 
@@ -115,6 +117,8 @@ namespace LittleBill_test_frontend
             lbl_temperature.Text = $"{weather.main.temp}°C";
             lbl_temperature.ForeColor = temperatureColor(weather.main.temp);
 
+
+            pic_weather.Image = (Bitmap)Resources.ResourceManager.GetObject(weather.weather[0].icon);
             HistoriqueHelpers.AddToHistorique(weather);
             refreshHistoriquePanel();
         }

@@ -36,12 +36,14 @@ namespace LittleBill_test_frontend
             this.pnl_top = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_minimize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btn_close = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.tbox_password = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbox_mail = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbl_register = new System.Windows.Forms.LinkLabel();
             this.form_drag = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.elipse_form = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.tbox_password = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbox_mail = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnl_top.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_description
@@ -132,6 +134,45 @@ namespace LittleBill_test_frontend
             this.btn_close.Size = new System.Drawing.Size(30, 30);
             this.btn_close.TabIndex = 0;
             // 
+            // lbl_register
+            // 
+            this.lbl_register.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.lbl_register.AutoSize = true;
+            this.lbl_register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_register.LinkColor = System.Drawing.Color.White;
+            this.lbl_register.Location = new System.Drawing.Point(498, 405);
+            this.lbl_register.Name = "lbl_register";
+            this.lbl_register.Size = new System.Drawing.Size(229, 16);
+            this.lbl_register.TabIndex = 23;
+            this.lbl_register.TabStop = true;
+            this.lbl_register.Text = "Pas encore de compte ? S\'enregister";
+            this.lbl_register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_register_LinkClicked);
+            // 
+            // form_drag
+            // 
+            this.form_drag.TargetControl = this;
+            this.form_drag.TransparentWhileDrag = true;
+            this.form_drag.UseTransparentDrag = true;
+            // 
+            // elipse_form
+            // 
+            this.elipse_form.BorderRadius = 15;
+            this.elipse_form.TargetControl = this;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 25;
+            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::LittleBill_test_frontend.Properties.Resources.soleil;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(23, 20);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(420, 401);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 24;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // tbox_password
             // 
             this.tbox_password.BorderRadius = 6;
@@ -196,37 +237,13 @@ namespace LittleBill_test_frontend
             this.tbox_mail.TextOffset = new System.Drawing.Point(20, 0);
             this.tbox_mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbox_KeyPress);
             // 
-            // lbl_register
-            // 
-            this.lbl_register.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.lbl_register.AutoSize = true;
-            this.lbl_register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_register.LinkColor = System.Drawing.Color.White;
-            this.lbl_register.Location = new System.Drawing.Point(498, 405);
-            this.lbl_register.Name = "lbl_register";
-            this.lbl_register.Size = new System.Drawing.Size(229, 16);
-            this.lbl_register.TabIndex = 23;
-            this.lbl_register.TabStop = true;
-            this.lbl_register.Text = "Pas encore de compte ? S\'enregister";
-            this.lbl_register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_register_LinkClicked);
-            // 
-            // form_drag
-            // 
-            this.form_drag.TargetControl = this;
-            this.form_drag.TransparentWhileDrag = true;
-            this.form_drag.UseTransparentDrag = true;
-            // 
-            // elipse_form
-            // 
-            this.elipse_form.BorderRadius = 15;
-            this.elipse_form.TargetControl = this;
-            // 
             // form_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(90)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lbl_register);
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.lbl_title);
@@ -239,6 +256,7 @@ namespace LittleBill_test_frontend
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "form_login";
             this.pnl_top.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +275,6 @@ namespace LittleBill_test_frontend
         private System.Windows.Forms.LinkLabel lbl_register;
         private Guna.UI2.WinForms.Guna2DragControl form_drag;
         private Guna.UI2.WinForms.Guna2Elipse elipse_form;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

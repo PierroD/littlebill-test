@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using LittleBill_test_frontend.Helpers;
+using LittleBill_test_frontend.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +37,9 @@ namespace LittleBill_test_frontend.UserControls
         {
             lbl_ville.Text = this.item.weather.name;
             lbl_temperature.Text = $"{this.item.weather.main.temp}°C";
-        }
+/*            lbl_temperature.ForeColor = temperatureColor(this.item.weather.main.temp);
+            pic_weather.Image = (Bitmap)Resources.ResourceManager.GetObject(this.item.weather.weather[0].icon);
+*/        }
 
         private Color temperatureColor(double temperature)
         {

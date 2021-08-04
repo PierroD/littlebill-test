@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LittleBill_test_frontend.Models.WeatherModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;

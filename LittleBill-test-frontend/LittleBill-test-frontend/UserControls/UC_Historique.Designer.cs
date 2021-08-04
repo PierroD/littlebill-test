@@ -33,10 +33,12 @@ namespace LittleBill_test_frontend.UserControls
             this.elipse_uc = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.lbl_ville = new System.Windows.Forms.Label();
             this.lbl_temperature = new System.Windows.Forms.Label();
-            this.btn_deleteHistorique = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.elipse_panel = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btn_deleteHistorique = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.pic_weather = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_uc
@@ -66,6 +68,26 @@ namespace LittleBill_test_frontend.UserControls
             this.lbl_temperature.TabIndex = 3;
             this.lbl_temperature.Text = "0°C";
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.AutoRoundedCorners = true;
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.guna2Panel1.BorderRadius = 26;
+            this.guna2Panel1.Controls.Add(this.pic_weather);
+            this.guna2Panel1.Controls.Add(this.btn_deleteHistorique);
+            this.guna2Panel1.Controls.Add(this.lbl_ville);
+            this.guna2Panel1.Controls.Add(this.lbl_temperature);
+            this.guna2Panel1.Location = new System.Drawing.Point(18, 6);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(499, 54);
+            this.guna2Panel1.TabIndex = 5;
+            // 
+            // elipse_panel
+            // 
+            this.elipse_panel.BorderRadius = 20;
+            this.elipse_panel.TargetControl = this.guna2Panel1;
+            // 
             // btn_deleteHistorique
             // 
             this.btn_deleteHistorique.CheckedState.Parent = this.btn_deleteHistorique;
@@ -92,24 +114,18 @@ namespace LittleBill_test_frontend.UserControls
             this.btn_deleteHistorique.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btn_deleteHistorique.Click += new System.EventHandler(this.btn_deleteHistorique_Click);
             // 
-            // guna2Panel1
+            // pic_weather
             // 
-            this.guna2Panel1.AutoRoundedCorners = true;
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
-            this.guna2Panel1.BorderRadius = 26;
-            this.guna2Panel1.Controls.Add(this.btn_deleteHistorique);
-            this.guna2Panel1.Controls.Add(this.lbl_ville);
-            this.guna2Panel1.Controls.Add(this.lbl_temperature);
-            this.guna2Panel1.Location = new System.Drawing.Point(18, 6);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(499, 54);
-            this.guna2Panel1.TabIndex = 5;
-            // 
-            // elipse_panel
-            // 
-            this.elipse_panel.BorderRadius = 20;
-            this.elipse_panel.TargetControl = this.guna2Panel1;
+            this.pic_weather.FillColor = System.Drawing.Color.Transparent;
+            this.pic_weather.Image = global::LittleBill_test_frontend.Properties.Resources._13n;
+            this.pic_weather.ImageRotate = 0F;
+            this.pic_weather.Location = new System.Drawing.Point(11, 6);
+            this.pic_weather.Name = "pic_weather";
+            this.pic_weather.ShadowDecoration.Parent = this.pic_weather;
+            this.pic_weather.Size = new System.Drawing.Size(40, 40);
+            this.pic_weather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_weather.TabIndex = 19;
+            this.pic_weather.TabStop = false;
             // 
             // UC_Historique
             // 
@@ -122,6 +138,7 @@ namespace LittleBill_test_frontend.UserControls
             this.Load += new System.EventHandler(this.UC_Historique_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,5 +151,6 @@ namespace LittleBill_test_frontend.UserControls
         private System.Windows.Forms.Label lbl_temperature;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Elipse elipse_panel;
+        private Guna.UI2.WinForms.Guna2PictureBox pic_weather;
     }
 }

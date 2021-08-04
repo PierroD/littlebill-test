@@ -37,11 +37,13 @@ namespace LittleBill_test_frontend
             this.pic_location = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnl_bg = new Guna.UI2.WinForms.Guna2Panel();
             this.sb_historique = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.flp_historique = new System.Windows.Forms.FlowLayoutPanel();
             this.tbox_search = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnl_top = new Guna.UI2.WinForms.Guna2Panel();
             this.btn_minimize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btn_close = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pic_weather = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lbl_temperature = new System.Windows.Forms.Label();
             this.guna2VSeparator1 = new Guna.UI2.WinForms.Guna2VSeparator();
             this.lbl_soleilSunset = new System.Windows.Forms.Label();
@@ -56,13 +58,13 @@ namespace LittleBill_test_frontend
             this.lbl_humiditeLibelle = new System.Windows.Forms.Label();
             this.lbl_humiditePourcentage = new System.Windows.Forms.Label();
             this.lbl_humidite = new System.Windows.Forms.Label();
-            this.flp_historique = new System.Windows.Forms.FlowLayoutPanel();
             this.lbl_search = new System.Windows.Forms.Label();
             this.btn_historique = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_location)).BeginInit();
             this.pnl_bg.SuspendLayout();
             this.pnl_top.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -150,6 +152,15 @@ namespace LittleBill_test_frontend
             this.sb_historique.Visible = false;
             this.sb_historique.ValueChanged += new System.EventHandler(this.sb_quotes_ValueChanged);
             // 
+            // flp_historique
+            // 
+            this.flp_historique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.flp_historique.Location = new System.Drawing.Point(703, 63);
+            this.flp_historique.Name = "flp_historique";
+            this.flp_historique.Size = new System.Drawing.Size(536, 584);
+            this.flp_historique.TabIndex = 6;
+            this.flp_historique.Visible = false;
+            // 
             // tbox_search
             // 
             this.tbox_search.BorderRadius = 20;
@@ -234,6 +245,7 @@ namespace LittleBill_test_frontend
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GradientPanel1.BorderRadius = 25;
+            this.guna2GradientPanel1.Controls.Add(this.pic_weather);
             this.guna2GradientPanel1.Controls.Add(this.lbl_temperature);
             this.guna2GradientPanel1.Controls.Add(this.guna2VSeparator1);
             this.guna2GradientPanel1.Controls.Add(this.lbl_soleilSunset);
@@ -256,6 +268,19 @@ namespace LittleBill_test_frontend
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
             this.guna2GradientPanel1.Size = new System.Drawing.Size(615, 535);
             this.guna2GradientPanel1.TabIndex = 7;
+            // 
+            // pic_weather
+            // 
+            this.pic_weather.FillColor = System.Drawing.Color.Transparent;
+            this.pic_weather.Image = global::LittleBill_test_frontend.Properties.Resources._13n;
+            this.pic_weather.ImageRotate = 0F;
+            this.pic_weather.Location = new System.Drawing.Point(268, 18);
+            this.pic_weather.Name = "pic_weather";
+            this.pic_weather.ShadowDecoration.Parent = this.pic_weather;
+            this.pic_weather.Size = new System.Drawing.Size(85, 85);
+            this.pic_weather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_weather.TabIndex = 18;
+            this.pic_weather.TabStop = false;
             // 
             // lbl_temperature
             // 
@@ -407,15 +432,6 @@ namespace LittleBill_test_frontend
             this.lbl_humidite.TabIndex = 4;
             this.lbl_humidite.Text = "Humidité";
             // 
-            // flp_historique
-            // 
-            this.flp_historique.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.flp_historique.Location = new System.Drawing.Point(703, 63);
-            this.flp_historique.Name = "flp_historique";
-            this.flp_historique.Size = new System.Drawing.Size(536, 584);
-            this.flp_historique.TabIndex = 6;
-            this.flp_historique.Visible = false;
-            // 
             // lbl_search
             // 
             this.lbl_search.AutoSize = true;
@@ -475,6 +491,7 @@ namespace LittleBill_test_frontend
             this.pnl_top.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_weather)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,6 +528,7 @@ namespace LittleBill_test_frontend
         private System.Windows.Forms.FlowLayoutPanel flp_historique;
         private System.Windows.Forms.Label lbl_temperature;
         private Guna.UI2.WinForms.Guna2VScrollBar sb_historique;
+        private Guna.UI2.WinForms.Guna2PictureBox pic_weather;
     }
 }
 

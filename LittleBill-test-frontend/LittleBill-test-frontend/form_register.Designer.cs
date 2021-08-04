@@ -41,7 +41,9 @@ namespace LittleBill_test_frontend
             this.tbox_nom = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbox_password = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbox_email = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnl_top.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // elipse_form
@@ -239,12 +241,27 @@ namespace LittleBill_test_frontend
             this.tbox_email.TextOffset = new System.Drawing.Point(20, 0);
             this.tbox_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbox_KeyPress);
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BorderRadius = 25;
+            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::LittleBill_test_frontend.Properties.Resources.nuagesjpg;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(16, 23);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(420, 401);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 25;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // form_register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(90)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.lbl_description);
             this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.tbox_nom);
@@ -258,6 +275,7 @@ namespace LittleBill_test_frontend
             this.Text = "form_register";
             this.Shown += new System.EventHandler(this.form_register_Shown);
             this.pnl_top.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +294,6 @@ namespace LittleBill_test_frontend
         private Guna.UI2.WinForms.Guna2TextBox tbox_nom;
         private System.Windows.Forms.Label lbl_description;
         private System.Windows.Forms.Label lbl_title;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }
