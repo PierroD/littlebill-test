@@ -45,5 +45,9 @@ namespace LittleBill_test_frontend
                 btn_register.PerformClick();
         }
 
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            changeOpenerVisibility();
+        }
     }
 }

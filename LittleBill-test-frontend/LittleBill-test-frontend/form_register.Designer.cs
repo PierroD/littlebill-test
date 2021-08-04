@@ -100,6 +100,7 @@ namespace LittleBill_test_frontend
             this.btn_close.ShadowDecoration.Parent = this.btn_close;
             this.btn_close.Size = new System.Drawing.Size(30, 30);
             this.btn_close.TabIndex = 0;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // btn_register
             // 
