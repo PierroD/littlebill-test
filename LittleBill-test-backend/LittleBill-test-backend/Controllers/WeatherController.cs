@@ -1,4 +1,5 @@
-﻿using LittleBill_test_backend.Models.WeatherModel;
+﻿using LittleBill_test_backend.Enums;
+using LittleBill_test_backend.Models.WeatherModel;
 using LittleBill_test_backend.Requests;
 using LittleBill_test_backend.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,11 @@ namespace LittleBill_test_backend.Controllers
         [HttpPost]
         public IActionResult GetByName(SearchWeatherRequest request)
         {
-           return Ok(_weatherService.GetByName(request.cityName, request.units, request.lang).Result);
+            var response = _weatherService.GetByName(request.cityName, request.units, request.lang).Result;
+            if (response != null)
+                return Ok(response);
+
+            return BadRequest(new { message = ErrorMessage.ERROR_400_BAD_CITYNAME });
         }
     }
 }

@@ -31,7 +31,7 @@ namespace LittleBill_test_backend.Controllers
             var response = _userService.Authenticate(model);
 
             if (response == null)
-                return BadRequest(new { message = ErrorMessage.ERROR_400_BAD_NAME_Or_PASSWORD });
+                return BadRequest(new { message = ErrorMessage.ERROR_400_BAD_NAME_OR_PASSWORD });
 
             return Ok(response);
         }

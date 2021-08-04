@@ -11,10 +11,10 @@ namespace LittleBill_test_backend.Models.WeatherModel
     {
         public Coordinates coord { get; set; }
 
-        public WeatherResult[] weathers { get; set; }
+        public Weather[] weather { get; set; }
 
         [Column("base")]
-        public string baseStation {get; set;}
+        public string station {get; set;}
 
         public Main main { get; set; }
         public int visibility { get; set; }

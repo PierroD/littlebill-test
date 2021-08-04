@@ -30,7 +30,8 @@ namespace LittleBill_test_backend.Services
                 }
                 else
                 {
-                    throw new Exception(response.ReasonPhrase);
+                    return null;
+                    //throw new Exception(response.ReasonPhrase);
                 }
             }
         }

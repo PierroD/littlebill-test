@@ -10,6 +10,6 @@ namespace LittleBill_test_backend.Models.WeatherModel
         public double speed { get; set; }
         public int deg { get; set; }
 
-        public int gust { get; set; }
+        public double gust { get; set; }
     }
 }
