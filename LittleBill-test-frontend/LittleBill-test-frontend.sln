@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleBill-test-frontend", "LittleBill-test-frontend\LittleBill-test-frontend.csproj", "{FED037F9-A0BF-4174-B6BA-06E3568589A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleBill-test-frontend-library", "LittleBill-test-frontend-library\LittleBill-test-frontend-library.csproj", "{455A9B18-36BC-4EB2-96B1-DA94FF981851}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FED037F9-A0BF-4174-B6BA-06E3568589A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FED037F9-A0BF-4174-B6BA-06E3568589A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FED037F9-A0BF-4174-B6BA-06E3568589A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FED037F9-A0BF-4174-B6BA-06E3568589A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{455A9B18-36BC-4EB2-96B1-DA94FF981851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{455A9B18-36BC-4EB2-96B1-DA94FF981851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{455A9B18-36BC-4EB2-96B1-DA94FF981851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{455A9B18-36BC-4EB2-96B1-DA94FF981851}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56B3A19F-E59C-436F-8CA3-1D55DA0480A0}
+	EndGlobalSection
+EndGlobal
